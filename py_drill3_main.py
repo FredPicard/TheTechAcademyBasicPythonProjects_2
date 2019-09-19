@@ -11,8 +11,7 @@
 
 import tkinter as tk
 from tkinter import *
-
-
+from tkinter import filedialog
 
 
 
@@ -29,8 +28,16 @@ class ParentWindow(Frame):
       
 
         self.varbtn_1 = StringVar()
-        self.varbtn_2 = StringVar()
+        self.varbtn_2= StringVar()
         self.varbtn_3 = StringVar()
+       
+  
+     
+        
+
+
+     
+                                             
 
         self.entry_1 = Entry(self.master,text=self.varbtn_1, font=("Helvetica", 16), fg="black", bg="white", width="48")
         self.entry_1.grid(row=5, column=4, padx=(10,10), pady=(70,0))
@@ -38,11 +45,12 @@ class ParentWindow(Frame):
         self.entry_2 = Entry(self.master,text=self.varbtn_2, font=("Helvetica", 16), fg="black", bg="white", width="48" )
         self.entry_2.grid(row=6, column=4, padx=(10,10), pady=(10,0))
 
+       
         
-        self.btn_1 = Button (self.master, text="Browse...", width=20, height=1,command=self.submit)
+        self.btn_1 = Button (self.master, text="Browse...", width=20, height=1,command=self.open)
         self.btn_1.grid(row=5, column=1, padx=(20,10), pady=(70,0), sticky=NE)
         
-        self.btn_2 = Button (self.master, text="Browse...", width=20, height=1, command=self.submit)
+        self.btn_2 = Button (self.master, text="Browse...", width=20, height=1,command=self.open_1)
         self.btn_2.grid(row=6, column=1, padx=(20,10), pady=(10,0), sticky=SE)
 
 
@@ -54,16 +62,23 @@ class ParentWindow(Frame):
 
 
 
-    def submit(self):
-        txt = self.varbtn_1.get()
-        msg = ("Let me browse for you")
-        print(msg)
-
+    def open(self):
+           choice = filedialog.askdirectory()
+           file = self.varbtn_1.set(choice)
+          
+           
+    def open_1(self):
+         choice = filedialog.askdirectory()
+         file2 = self.varbtn_2.set(choice)
+        
+       
+      
+           
 
     def check(self):
-        txt = self.varbtn_3.get()
-        msg = ("Checking my files")
-        print(msg)
+         msg = ("Checking my files")
+         print(msg)
+           
 
 if __name__ == "__main__":
     root = tk.Tk()
