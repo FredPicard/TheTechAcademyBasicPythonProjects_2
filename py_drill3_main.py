@@ -12,6 +12,8 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import filedialog
+import sqlite3
+import time
 
 
 
@@ -82,6 +84,8 @@ class ParentWindow(Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
+
+    
     App = ParentWindow(root)
     root.mainloop()
 
